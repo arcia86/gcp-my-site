@@ -1,0 +1,24 @@
+version: "2"
+services:
+  backend:
+    container_name: backend
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    restart: always
+    ports:
+      - 5000:5000
+    networks:
+      - myweb
+  client:
+    container_name: client
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    restart: always
+    ports:
+      - 3010:3010
+    networks:
+      - myweb
+networks:
+  myweb:
