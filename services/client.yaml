@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: "client"
+spec:
+  selector:
+    app: mysite
+    tier: client
+  ports:
+    - port: 3010
+      targetPort: 3010
+      protocol: TCP
+  type : LoadBalancer

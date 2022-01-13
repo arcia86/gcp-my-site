@@ -5,6 +5,10 @@ app = Flask(__name__)
 
 #Members API Route
 
+@app.route('/')
+def home():
+   return "hello world!!!!"
+
 @app.route("/members")
 def members():
     return{"members": ["Member1", "Member2","Member3"]}

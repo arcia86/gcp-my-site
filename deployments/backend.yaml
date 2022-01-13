@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: mysite
+    tier: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mysite
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: mysite
+        tier: backend
+    spec:
+      containers:
+      - name: backend
+        image: gcr.io/{my-project-id}/my-backend:2.1
+        ports:
+        - containerPort: 5000
